@@ -12,8 +12,8 @@
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				const knownYears = Array(...new Set([...$('.post-head span').map((e, o) => $(o).text().split(/[,\s]+/).slice(-1)).toArray().sort()])).join(', ')
-				$('.known-years').text(knownYears)
+				// const knownYears = Array(...new Set([...$('.post-head span').map((e, o) => $(o).text().split(/[,\s]+/).slice(-1)).toArray().sort()])).join(', ')
+				// $('.known-years').text(knownYears)
 
 				$("#search").on("input", function() {
 					const frag = $("#search").val()
@@ -56,8 +56,8 @@
 ?>
 			<h2>
 				<form>
-					<span>Tate Events:</span>
-					<label for="search">Search <?php echo $site; ?></label>
+					<span>Search </span>
+					<label for="search"><?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
 					<span class="known-years"></span>
 				</form>
@@ -80,7 +80,6 @@
 						<?php echo $description; ?>
 					</div>
 				</div>
-
 <?php
 				$i++;
 			}
