@@ -82,6 +82,7 @@
 			if(!$invalidurl){
 				echo "<h2>No item found</h2>";
 			}
-		}	?>
+		}
+?>
     </body>
 </html>
