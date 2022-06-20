@@ -56,6 +56,7 @@
 ?>
 			<h2>
 				<form>
+					<span>Tate Events:</span>
 					<label for="search">Search <?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
 					<span class="known-years></span>
