@@ -12,13 +12,14 @@
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				console.debug(`$(document).ready`)
 				$("#search").on("input", function() {
 					frag = $("#search").val()
 					console.debug(`frag: ${frag}`)
 					reggie = new RegExp(frag, 'i')
 					$(".post").each(function(i, obj) {
-						if (reggie.test($(obj).text())) {
+						const body = $(obj).text()
+						const date = $(obj).find('.post-head span').text()
+						if (reggie.test(`${body} ${date}`)) {
 							$(obj).show();
 						} else {
 							$(obj).hide();
