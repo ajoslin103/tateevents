@@ -12,16 +12,16 @@
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				// const knownYears = Array(...new Set([...$('.post-head span').map((e, o) => $(o).text().split(/[,\s]+/).slice(-1)).toArray().sort()])).join(', ')
-				// $('.known-years').text(knownYears)
+				const knownYears = Array(...new Set([...$('.post-head span').map((e, o) => $(o).text().split(/[,\s]+/).slice(-1)).toArray().sort()])).join(', ')
+				console.debug('knownYears', knownYears)
+				$('.known-years').text(knownYears)
 
 				$("#search").on("input", function() {
 					const frag = $("#search").val()
-					console.debug(`frag: ${frag}`)
 					const reggie = new RegExp(frag, 'i')
 					$(".post").each(function(i, obj) {
 						const body = $(obj).text()
-						const date = $(obj).find('.post-head span').text()
+						const date = ''; // $(obj).find('.post-head span').text()
 						if (reggie.test(`${body} ${date}`)) {
 							$(obj).show();
 						} else {
