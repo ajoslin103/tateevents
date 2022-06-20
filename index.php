@@ -74,7 +74,7 @@
 				<div class="post">
 					<div class="post-head">
 						<h2><a class="feed_title" href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
-						<span><?php echo $knownYears ?></span>
+						<span><?php echo $pubDate ?></span>
 					</div>
 					<div class="post-content">
 						<?php echo $description; ?>
