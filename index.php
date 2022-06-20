@@ -59,7 +59,7 @@
 					<span>Search </span>
 					<label for="search"><?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
-					<span class="known-years"></span>
+					<smaller>(Within: <span class="known-years"></span>)</smaller>
 				</form>
 			</h2>
 <?php
