@@ -1,2 +1,2 @@
-# salty-garden
+# tateevents
 serve an rss feed doc

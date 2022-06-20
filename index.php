@@ -35,7 +35,7 @@
 
 <?php
 
-		$url = "https://salty-garden-64703.herokuapp.com/feed.xml";
+		$url = "https://tateevents.herokuapp.com/feed.xml";
 
 		$invalidurl = false;
 		if(@simplexml_load_file($url)){
