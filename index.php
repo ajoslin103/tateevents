@@ -12,10 +12,13 @@
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 		<script>
 			$(document).ready(function(){
+				const knownYears = Array(...new Set([...$('.post-head span').map((e, o) => $(o).text().split(/[,\s]+/).slice(-1)).toArray().sort()])).join(', ')
+				$('.known-years').text(knownYears)
+
 				$("#search").on("input", function() {
-					frag = $("#search").val()
+					const frag = $("#search").val()
 					console.debug(`frag: ${frag}`)
-					reggie = new RegExp(frag, 'i')
+					const reggie = new RegExp(frag, 'i')
 					$(".post").each(function(i, obj) {
 						const body = $(obj).text()
 						const date = $(obj).find('.post-head span').text()
@@ -55,6 +58,7 @@
 				<form>
 					<label for="search">Search <?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
+					<span class="known-years></span>
 				</form>
 			</h2>
 <?php
@@ -69,7 +73,7 @@
 				<div class="post">
 					<div class="post-head">
 						<h2><a class="feed_title" href="<?php echo $link; ?>"><?php echo $title; ?></a></h2>
-						<span><?php echo $pubDate; ?></span>
+						<span><?php echo $knownYears ?></span>
 					</div>
 					<div class="post-content">
 						<?php echo $description; ?>
