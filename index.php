@@ -22,7 +22,7 @@
 					$(".post").each(function(i, obj) {
 						const body = $(obj).text()
 						const date = ''; // $(obj).find('.post-head span').text()
-						if (reggie.test(`${body} ${date}`)) {
+						if (reggie.test(body) || reggie.test(date)) {
 							$(obj).show();
 						} else {
 							$(obj).hide();
@@ -59,7 +59,7 @@
 					<span>Search </span>
 					<label for="search"><?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
-					<smaller>(Within: <span class="known-years"></span>)</smaller>
+					<h4>(Within: <span class="known-years"></span>)</h4>
 				</form>
 			</h2>
 <?php
