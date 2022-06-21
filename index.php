@@ -16,33 +16,34 @@
 				console.debug('knownYears', knownYears)
 				$('.known-years').text(knownYears)
 
-				$("#search").on("input", function() {
+				let fragReg = undefined;
+				let yearReg = undefined;
+
+				function andSearchPosts () {
 					$(".post").hide();
+					$(".post").each(function(i, obj) {
+						const body = $(obj).text()
+						const date = $(obj).find('.post-head span').text()
+						const foundFrag = fragReg ? fragReg.test(body) : true;
+						const foundYear = yearReg ? yearReg.test(date) : true;
+						if (foundFrag && foundYear) {
+							$(obj).show();
+						} else {
+							$(obj).hide();
+						}
+					})
+				}
+
+				$("#search").on("input", function() {
 					const frag = $("#search").val()
-					if (frag) {
-						const reggie = new RegExp(frag, 'i')
-						$(".post").each(function(i, obj) {
-							const body = $(obj).text()
-							if (reggie.test(body)) {
-								$(obj).show();
-							}
-						})
-					}
+					fragReg = frag ? new RegExp(frag, 'i') : undefined
+					andSearchPosts()
 				})
 
-				$("#when").on("input", function() {
-					$(".post").hide();
-					const when = $("#when").val()
-					if (when) {
-						const reggie = new RegExp(when, 'i')
-						$(".post").each(function(i, obj) {
-							const body = $(obj).text()
-							const date = $(obj).find('.post-head span').text()
-							if (reggie.test(date)) {
-								$(obj).show();
-							}
-						})
-					}
+				$("#year").on("input", function() {
+					const year = $("#year").val()
+					yearReg = year ? new RegExp(year, 'i') : undefined
+					andSearchPosts()
 				})
 			});
 		</script>
@@ -74,8 +75,9 @@
 					<span>Search </span>
 					<label for="search"><?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
-					<label for="when">for Year:</label>
-					<input type="text" id="when" size="25"/>
+					</br>
+					<label for="year">for Year:</label>
+					<input type="text" id="year" size="25"/>
 				</form>
 			</h2>
 			(Within: <span class="known-years"></span>)
