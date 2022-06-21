@@ -72,8 +72,9 @@
 ?>
 			<h2>
 				<form>
-					<span>Search </span>
-					<label for="search"><?php echo $site; ?></label>
+					<span>Search <?php echo $site; ?></span>
+					</br>
+					<label for="search">for Text:</label>
 					<input type="text" id="search" size="25"/>
 					</br>
 					<label for="year">for Year:</label>
