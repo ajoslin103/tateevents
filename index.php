@@ -77,7 +77,7 @@
 					<label for="search">for Text:</label>
 					<input type="text" id="search" size="25" autocomplete="on"/>
 					</br>
-					<label for="year">for Year:</label>
+					<label for="year">&nbsp; in Year:</label>
 					<input type="text" id="year" size="25" autocomplete="on"/>
 				</form>
 			</h2>
