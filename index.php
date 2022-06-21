@@ -75,10 +75,10 @@
 					<span>Search <?php echo $site; ?></span>
 					</br>
 					<label for="search">for Text:</label>
-					<input type="text" id="search" size="25"/>
+					<input type="text" id="search" size="25" autocomplete="on"/>
 					</br>
 					<label for="year">for Year:</label>
-					<input type="text" id="year" size="25"/>
+					<input type="text" id="year" size="25" autocomplete="on"/>
 				</form>
 			</h2>
 			(Within: <span class="known-years"></span>)
