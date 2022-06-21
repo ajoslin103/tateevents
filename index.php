@@ -17,17 +17,32 @@
 				$('.known-years').text(knownYears)
 
 				$("#search").on("input", function() {
+					$(".post").hide();
 					const frag = $("#search").val()
-					const reggie = new RegExp(frag, 'i')
-					$(".post").each(function(i, obj) {
-						const body = $(obj).text()
-						const date = ''; // $(obj).find('.post-head span').text()
-						if (reggie.test(body) || reggie.test(date)) {
-							$(obj).show();
-						} else {
-							$(obj).hide();
-						}
-					})
+					if (frag) {
+						const reggie = new RegExp(frag, 'i')
+						$(".post").each(function(i, obj) {
+							const body = $(obj).text()
+							if (reggie.test(body)) {
+								$(obj).show();
+							}
+						})
+					}
+				})
+
+				$("#when").on("input", function() {
+					$(".post").hide();
+					const when = $("#when").val()
+					if (when) {
+						const reggie = new RegExp(when, 'i')
+						$(".post").each(function(i, obj) {
+							const body = $(obj).text()
+							const date = $(obj).find('.post-head span').text()
+							if (reggie.test(date)) {
+								$(obj).show();
+							}
+						})
+					}
 				})
 			});
 		</script>
@@ -59,9 +74,11 @@
 					<span>Search </span>
 					<label for="search"><?php echo $site; ?></label>
 					<input type="text" id="search" size="25"/>
-					<h4>(Within: <span class="known-years"></span>)</h4>
+					<label for="when">for Year:</label>
+					<input type="text" id="when" size="25"/>
 				</form>
 			</h2>
+			(Within: <span class="known-years"></span>)
 <?php
 			foreach ($feeds->channel->item as $item) {
 
